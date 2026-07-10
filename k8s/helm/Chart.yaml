@@ -1,0 +1,5 @@
+apiVersion: v2
+name: llm-pipeline
+description: Fine-tuned LLM serving with RAG, deployable to AWS EKS or Azure AKS
+version: 0.1.0
+appVersion: "1.0"

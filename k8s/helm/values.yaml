@@ -1,0 +1,22 @@
+replicaCount: 1
+
+image:
+  repository: llm-pipeline-serving
+  tag: local
+  pullPolicy: IfNotPresent
+
+service:
+  type: LoadBalancer
+  port: 80
+  targetPort: 8000
+
+resources:
+  requests:
+    cpu: "2"
+    memory: "8Gi"
+  limits:
+    cpu: "4"
+    memory: "16Gi"
+
+env:
+  pineconeApiKeySecretName: pinecone-secret

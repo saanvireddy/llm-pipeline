@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+torch==2.13.0
+transformers==5.13.0
+peft==0.19.1
+bitsandbytes
+accelerate
+pinecone
+sentence-transformers
+python-dotenv

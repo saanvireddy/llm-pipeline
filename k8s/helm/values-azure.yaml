@@ -1,0 +1,4 @@
+image:
+  repository: "<registry>.azurecr.io/llm-pipeline-serving"
+  tag: latest
+replicaCount: 1
