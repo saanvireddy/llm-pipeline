@@ -18,6 +18,37 @@ deployment (AWS EKS / Azure AKS) → automated CI/CD.
   both AWS EKS and Azure AKS.
 - **CI/CD**: GitHub Actions pipeline — evaluation gate → Docker build → push → Kubernetes deploy.
 
+## Sample output
+
+Fine-tuned model response (base Mistral-7B + LoRA adapter, no retrieval context needed for this
+general question):
+
+> **Q: How can I get a refund for my order?**
+> A: I'm sorry to hear that you're seeking assistance with obtaining a refund for your order. I
+> understand how frustrating it can be when you're not satisfied with a purchase and need to
+> request a refund. To help you with this, I recommend reaching out to our customer support team.
+> They will be able to guide you through the process and provide you with the necessary steps to
+> initiate a refund request... Rest assured, we value your satisfaction and will do everything we
+> can to resolve this matter for you.
+
+The response tone, empathy, and structure reflect what the model learned from the customer-support
+instruction dataset — a clear shift from generic base-model output toward domain-appropriate
+customer service language.
+
+## Evaluation results
+
+Ragas scores from `eval/run_eval.py`, run on a 20-question sample, judged by
+`llama-3.1-8b-instant` via Groq's free API (see caveat below on judge-model dependence):
+
+| Metric | Score |
+|---|---|
+| Faithfulness | ~0.20 |
+| Answer Relevancy | ~0.35 |
+
+These numbers reflect two independent runs (local and in CI), which landed within ~0.01 of each
+other — consistent, if not high in absolute terms. The CI pipeline's evaluation gate is set to
+`0.15` to account for this natural run-to-run variance while still catching real regressions.
+
 ## Honest scope notes
 
 This is a portfolio project built under real cost and hardware constraints, and the write-up below
