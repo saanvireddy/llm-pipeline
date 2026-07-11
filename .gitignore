@@ -7,3 +7,9 @@ wandb/
 *.safetensors
 .terraform/
 *.tfstate*
+training/checkpoints/
+helm.zip
+terraform.zip
+helm-temp/
+terraform-temp/
+*.zip
