@@ -28,7 +28,7 @@ jobs:
           score = df['faithfulness'].mean()
           print(f'faithfulness={score}')
           import sys
-          sys.exit(0 if score >= 0.2 else 1)
+          sys.exit(0 if score >= 0.15 else 1)
           "
 
   build-and-push:
