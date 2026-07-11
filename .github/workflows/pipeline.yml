@@ -7,7 +7,7 @@ on:
       - 'training/**'
       - 'data/processed/**'
       - 'serving/**'
-
+  workflow_dispatch:
 jobs:
   evaluate:
     runs-on: ubuntu-latest
